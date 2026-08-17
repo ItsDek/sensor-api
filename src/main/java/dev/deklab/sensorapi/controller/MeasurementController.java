@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @RestController
 public class MeasurementController {
-
     private final MeasurementService measurementService;
 
     MeasurementController(MeasurementService measurementService) {
@@ -38,7 +37,7 @@ public class MeasurementController {
     @PostMapping("/measurements")
     @ResponseStatus(HttpStatus.CREATED)
     public Measurement postMeasurement(@RequestBody Measurement measurement) {
-        return measurement;
+        return measurementService.save(measurement);
     }
 
 }
